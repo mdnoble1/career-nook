@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { FaBars } from 'react-icons/fa';
+import { FaBars } from "react-icons/fa";
+import logo from "../../assets/Ca1 (1).png";
 
 const Navbar = () => {
   const navLinks = (
@@ -38,27 +39,29 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#ff6b35]">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden text-xl">
+    <nav className="bg-[#ff6b35] py-4">
+      <div className="flex justify-between items-center container mx-auto px-6">
+        <div className="dropdown lg:hidden">
+          <label tabIndex={0} className="text-2xl">
             <FaBars></FaBars>
           </label>
           <ul
             tabIndex={0}
-            className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-200 rounded-box w-52 font-semibold text-lg text-[#ff6b35]"
+            className="dropdown-content mt-3 z-[1] p-4 shadow bg-slate-50 rounded-box w-52 font-semibold text-lg text-[#ff6b35]"
           >
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu-horizontal px-1 font-semibold text-xl text-white gap-10">
+        <div>
+          <img className="w-40 md:w-44 lg:w-52" src={logo} alt="" />
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="flex gap-12 font-semibold text-xl text-white">
             {navLinks}
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
