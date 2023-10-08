@@ -39,15 +39,15 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-[#ff6b35] py-4">
+    <nav className="bg-[#fc621c] py-4">
       <div className="flex justify-between items-center container mx-auto px-6">
         <div className="dropdown lg:hidden">
-          <label tabIndex={0} className="text-2xl">
+          <label tabIndex={0} className="text-2xl text-white">
             <FaBars></FaBars>
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content mt-3 z-[1] p-4 shadow bg-slate-50 rounded-box w-52 font-semibold text-lg text-[#ff6b35]"
+            className="dropdown-content mt-3 z-[1] p-4 shadow bg-slate-50 rounded-box w-52 font-semibold text-lg text-[#fc621c]"
           >
             {navLinks}
           </ul>
