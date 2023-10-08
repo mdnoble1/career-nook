@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div className="bg-gray-100 max-h-fit pt-6 pb-16 lg:pt-12">
-      <div className="lg:w-1/2 mx-auto py-20 lg:py-32 bg-white rounded-md mt-12">
+    <div className="bg-gray-100 max-h-fit lg:pb-16 lg:pt-12">
+      <div className="lg:w-1/2 mx-auto py-12 lg:py-32 bg-white rounded-md lg:mt-12">
         <h2 className="font-semibold text-4xl text-black text-center mb-12">
           Register Your Account
         </h2>
