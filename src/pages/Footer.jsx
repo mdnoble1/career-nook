@@ -3,7 +3,7 @@ import logo from "../assets/Ca1 (1).png"
 
 const Footer = () => {
     return (
-        <footer className="bg-black">
+        <footer className="bg-black mt-8 lg:mt-12">
           <section className="container mx-auto">
             <div className="md:flex lg:flex items-center justify-between">
               <h3 className="text-5xl lg:text-6xl text-white text-center md:text-left lg:text-left mb-10 pt-14 lg:my-28">Welcome to Career Nook</h3>
