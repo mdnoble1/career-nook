@@ -6,7 +6,7 @@ import { FaGoogle } from 'react-icons/fa';
 const Login = () => {
 
 
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser , signInWithGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -29,6 +29,17 @@ const Login = () => {
             .catch(error => {
                 console.error(error);
             })
+    };
+
+
+    const handleLoginWithGoogle = () =>{
+        signInWithGoogle()
+          .then(result => {
+            console.log(result.user);
+          })
+          .catch(error => {
+            console.error(error);
+          })
     }
 
 
@@ -75,7 +86,7 @@ const Login = () => {
           </div>
           <p className="font-medium text-xl text-center">or</p>
           <div>
-          <button className="btn btn-outline w-full rounded-lg font-semibold text-xl normal-case hover:text-[#fc621c]"><FaGoogle></FaGoogle>Sign In With Google</button>
+          <button onClick={handleLoginWithGoogle} className="btn btn-outline w-full rounded-lg font-semibold text-xl normal-case hover:text-[#fc621c]"><FaGoogle></FaGoogle>Sign In With Google</button>
           </div>
         </form>
         <div>

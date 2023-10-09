@@ -6,7 +6,7 @@ import auth from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
 
@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
 
     const signInWithGoogle = () =>{
         setLoading(true);
-        return signInWithPopup(auth , provider);
+        return signInWithPopup(auth , googleProvider);
     }
 
     const logOut = () => {
