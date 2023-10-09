@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="bg-black mt-8 lg:mt-12">
           <section className="container mx-auto">
             <div className="md:flex lg:flex items-center justify-between">
-              <h3 className="text-5xl lg:text-6xl text-white text-center md:text-left lg:text-left mb-10 pt-14 lg:my-28">Welcome to Career Nook</h3>
+              <h3 className="text-5xl lg:text-6xl text-white text-center md:text-left lg:text-left mb-10 pt-14 lg:my-28">Inspiring Futures - Career Nook </h3>
               <div className="flex justify-center">
                 <NavLink to="/login"><button className="font-bold text-xl text-white bg-[#fc621c] py-3 px-6 lg:px-10 rounded-full hover:bg-orange-400 hover:text-black mb-10 md:mt-16 lg:mt-24">Login</button></NavLink>
               </div>
