@@ -35,7 +35,7 @@ const Register = () => {
 
 
     if (password.length < 6) {
-      toast.error('Password Must be Longer Than 6 Characters');
+      toast.error('Password Must Contain 6 Characters');
       return;
     }
 
@@ -54,7 +54,6 @@ const Register = () => {
 
     
     
-    console.log(name, photo , email, password);
 
 
     // create user in firebase 

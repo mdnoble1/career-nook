@@ -7,7 +7,7 @@ const Footer = () => {
           <section className="container mx-auto">
             <div className="md:flex lg:flex items-center justify-between">
               <h3 data-aos="fade-up"
-     data-aos-duration="1000" className="text-5xl lg:text-6xl text-white text-center md:text-left lg:text-left mb-10 pt-14 lg:my-28">Inspiring Futures - Career Nook </h3>
+     data-aos-duration="1000" className="text-4xl lg:text-5xl text-white text-center md:text-left lg:text-left mb-10 pt-10 my-8 lg:my-16">Inspiring Futures - Career Nook </h3>
               <div className="flex justify-center">
                 <NavLink to="/login"><button data-aos="zoom-in"
      data-aos-duration="1000" className="font-bold text-xl text-white bg-[#fc621c] py-3 px-6 lg:px-10 rounded-full hover:bg-orange-400 hover:text-black mb-10 md:mt-16 lg:mt-24">Login</button></NavLink>

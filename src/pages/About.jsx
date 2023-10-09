@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div className="my-10 lg:my-24">
+        <div className="mt-10 lg:my-24">
         <div className="hero">
           <div className="hero-content justify-between flex-col sm:w-full lg:flex-row">
             <div className="text-center lg:text-left">
@@ -40,7 +40,7 @@ const About = () => {
                 <img
                 data-aos="zoom-out" data-aos-duration="1500"
                 className="rounded-md"
-                  src="https://i.ibb.co/sJWr9Jc/about-Firm.jpg"
+                  src="https://i.ibb.co/8rZkmL0/Untitled-design-1.jpg"
                   alt=""
                 />
               </div>

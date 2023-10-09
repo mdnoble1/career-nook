@@ -1,11 +1,11 @@
 const Testimonial = () => {
   return (
     <>
-      <div className="my-16">
-        <h1 className="text-4xl lg:text-6xl font-bold text-[#fc621c] font-serif  px-4 leading-10  mt-6 text-center">
+      <div className="lg:my-16">
+        <h1 className="text-4xl lg:text-5xl font-bold text-[#fc621c] font-serif  px-4 leading-10  mt-6 text-center">
           What Our Client Says
         </h1>
-        <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-20 gap-6">
+        <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-10 lg:py-20 gap-6">
           <div>
             <div
               className="group w-full bg-white relative flex flex-col items-center hover:bg-gray-700 cursor-pointer shadow-md md:p-12 p-6"
@@ -42,11 +42,7 @@ const Testimonial = () => {
                   </defs>
                 </svg>
                 <p className="xl:w-80 text-base leading-normal text-center mt-4">
-                  Health coaching is a valuable resource for anyone looking to
-                  improve their health and well-being. A good health coach can
-                  help you make positive changes in your life and achieve your
-                  goals, leading to a happier, healthier, and more fulfilling
-                  life.
+                I am immensely grateful to Career Nook for their outstanding events, especially their career fair. Attending their fair was a transforming experience, and it completely revolutionized my approach to job hunting. Thanks to Career Nook, I am not only gainfully employed, but I am also thriving in a role that I am genuinely passionate about. The difference they have made in my professional life is immeasurable.
                 </p>
               </div>
               <div className="text-white group-hover:text-black absolute bottom-0 -mb-6">
@@ -170,11 +166,7 @@ const Testimonial = () => {
                   </defs>
                 </svg>
                 <p className="xl:w-80 text-base leading-normal text-center mt-4">
-                  Health coaching is a valuable resource for anyone looking to
-                  improve their health and well-being. A good health coach can
-                  help you make positive changes in your life and achieve your
-                  goals, leading to a happier, healthier, and more fulfilling
-                  life.
+                I am immensely grateful to Career Nook for their outstanding events, especially their career fair. Attending their fair was a transforming experience, and it completely revolutionized my approach to job hunting. Thanks to Career Nook, I am not only gainfully employed, but I am also thriving in a role that I am genuinely passionate about. The difference they have made in my professional life is immeasurable.
                 </p>
               </div>
               <div className="text-white group-hover:text-black absolute bottom-0 -mb-6">
@@ -298,11 +290,7 @@ const Testimonial = () => {
                   </defs>
                 </svg>
                 <p className="xl:w-80 text-base leading-normal text-center mt-4">
-                  Health coaching is a valuable resource for anyone looking to
-                  improve their health and well-being. A good health coach can
-                  help you make positive changes in your life and achieve your
-                  goals, leading to a happier, healthier, and more fulfilling
-                  life.
+                I am immensely grateful to Career Nook for their outstanding events, especially their career fair. Attending their fair was a transforming experience, and it completely revolutionized my approach to job hunting. Thanks to Career Nook, I am not only gainfully employed, but I am also thriving in a role that I am genuinely passionate about. The difference they have made in my professional life is immeasurable.
                 </p>
               </div>
               <div className="text-white group-hover:text-black absolute bottom-0 -mb-6">
