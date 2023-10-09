@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -77,7 +77,7 @@ const Register = () => {
         </form>
         <div>
           <p className="font-semibold text-black text-center">
-            Already a Member ? Please <Link to="/login" className="text-[#fc621c]">Login</Link>
+            Already a Member ? Please <NavLink to="/login" className="text-[#fc621c]">Login</NavLink>
           </p>
         </div>
       </div>

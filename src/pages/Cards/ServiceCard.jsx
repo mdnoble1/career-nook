@@ -10,7 +10,7 @@ const ServiceCard = ({ service }) => {
         <img src={img} alt="" />
       </figure>
       <div className="p-6">
-        <h2 className="font-semibold text-2xl mb-4 ">{title}</h2>
+        <h2 className="font-bold text-2xl mb-4 ">{title}</h2>
         <p className="font-medium mb-4 text-justify h-20">{description.slice(0, 100)}...</p>
         <p className="font-bold text-xl text-black mb-8">
           Price: ${price}

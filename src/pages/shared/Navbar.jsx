@@ -39,7 +39,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-[#fc621c] py-4">
+    <nav className="bg-[#fc621c] py-6 lg:py-8">
       <div className="flex justify-between items-center container mx-auto px-6">
         <div className="dropdown lg:hidden">
           <label tabIndex={0} className="text-2xl text-white">

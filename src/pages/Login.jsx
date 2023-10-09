@@ -1,6 +1,36 @@
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+
+
+  const { signInUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handleLogin = e => {
+        e.preventDefault();
+
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        console.log(email , password)
+
+        // log in user from firebase 
+
+        signInUser(email , password)
+            .then(result => {
+                console.log(result.user);
+                e.target.reset();
+                navigate("/");
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
+
   return (
     <div className="bg-gray-100 h-screen lg:pt-12">
       <div className="lg:w-1/2 mx-auto py-12 lg:py-32 bg-white rounded-md lg:mt-12">
@@ -8,7 +38,7 @@ const Login = () => {
           Login to Your Account
         </h2>
         <div className="border border-gray-200 lg:w-1/2 mx-auto mb-6"></div>
-        <form className="card-body lg:w-1/2 mx-auto">
+        <form onSubmit={handleLogin} className="card-body lg:w-1/2 mx-auto">
           <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold text-lg text-black">
@@ -45,7 +75,7 @@ const Login = () => {
         </form>
         <div>
           <p className="font-semibold text-black text-center">
-            Don’t Have An Account ? Please <Link to="/register" className="text-[#fc621c]">Register</Link>
+            Don’t Have An Account ? Please <NavLink to="/register" className="text-[#fc621c]">Register</NavLink>
           </p>
         </div>
       </div>
