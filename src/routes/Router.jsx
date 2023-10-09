@@ -34,11 +34,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/feedback",
-                element: <Feedback></Feedback>
+                element: <PrivateRoute><Feedback></Feedback></PrivateRoute>
             },
             {
                 path: "/newArrival",
-                element: <NewArrival></NewArrival>
+                element: <PrivateRoute><NewArrival></NewArrival></PrivateRoute>
             }
         ]
     }

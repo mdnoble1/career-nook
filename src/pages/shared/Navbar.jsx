@@ -52,26 +52,31 @@ const Navbar = () => {
           Register
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/feedback"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black underline" : ""
-          }
-        >
-          Feedback
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/newArrival"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black underline" : ""
-          }
-        >
-          New Arrival
-        </NavLink>
-      </li>
+      
+      { user &&
+        <> 
+          <li>
+            <NavLink
+              to="/feedback"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-black underline" : ""
+              }
+            >
+              Feedback
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/newArrival"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-black underline" : ""
+              }
+            >
+              New Arrival
+            </NavLink>
+          </li>
+        </>
+      }
     </>
   );
 
