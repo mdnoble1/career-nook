@@ -154,7 +154,7 @@ const Register = () => {
             </div>
           </div>
           <div className="flex items-center gap-4 mt-2">
-            <input type="checkbox" name="terms" id="" />
+            <input type="checkbox" name="terms" id="" required />
             <p>Accept Term & Conditions</p>
           </div>
           <div className="form-control mt-6">

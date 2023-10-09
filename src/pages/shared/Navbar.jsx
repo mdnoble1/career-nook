@@ -5,20 +5,17 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
 
-
-  const { user , logOut } = useContext(AuthContext);
-
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOut()
       .then(() => {
         console.log("user logged out");
       })
-      .catch(error => {
-        console.error(error)
-      })
-  } 
-
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const navLinks = (
     <>
@@ -52,9 +49,9 @@ const Navbar = () => {
           Register
         </NavLink>
       </li>
-      
-      { user &&
-        <> 
+
+      {user && (
+        <>
           <li>
             <NavLink
               to="/feedback"
@@ -76,7 +73,7 @@ const Navbar = () => {
             </NavLink>
           </li>
         </>
-      }
+      )}
     </>
   );
 
@@ -92,14 +89,35 @@ const Navbar = () => {
             className="dropdown-content mt-3 z-[1] p-4 shadow bg-slate-50 rounded-box w-52 font-semibold text-lg text-[#fc621c]"
           >
             {navLinks}
-              <div>
-                {
-                  user && <>
-                  <span>{user.email}</span>
-                  <button onClick={handleLogOut} className="btn btn-sm btn-outline">Logout</button>
-                  </>
-                }
-              </div>
+            <div className="mt-4">
+              {user && (
+                <>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <label
+                        tabIndex={0}
+                        className="btn btn-ghost btn-circle avatar"
+                      >
+                        <div className="w-10 rounded-full">
+                          <img src={user.photoURL} />
+                        </div>
+                      </label>
+                    </div>
+                    <div>
+                      <span className="block font-semibold text-sm text-center">
+                        {user.displayName}
+                      </span>
+                      <button
+                        onClick={handleLogOut}
+                        className="btn btn-xs btn-outline"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </ul>
         </div>
         <div>
@@ -111,23 +129,33 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:block">
-          {
-            user && <>
-            <div className="flex items-center justify-between gap-4">
-              <div>
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                    < img src={user.photoURL} />
+          {user && (
+            <>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={user.photoURL} />
+                    </div>
+                  </label>
                 </div>
-              </label>
+                <div>
+                  <span className="block font-semibold text-sm text-center">
+                    {user.displayName}
+                  </span>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-xs btn-outline"
+                  >
+                    Logout
+                  </button>
+                </div>
               </div>
-              <div>
-              <span className="block font-semibold text-sm text-center">{user.displayName}</span>
-              <button onClick={handleLogOut} className="btn btn-xs btn-outline">Logout</button>
-              </div>
-            </div>
             </>
-          }
+          )}
         </div>
       </div>
     </nav>
