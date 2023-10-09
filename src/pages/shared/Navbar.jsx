@@ -88,8 +88,19 @@ const Navbar = () => {
         <div className="hidden lg:block">
           {
             user && <>
-            <span>{user.email}</span>
-            <button onClick={handleLogOut} className="btn btn-sm btn-outline">Logout</button>
+            <div className="flex items-center justify-between gap-4">
+              <div>
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                    < img src={user.photoURL} />
+                </div>
+              </label>
+              </div>
+              <div>
+              <span className="block font-semibold text-sm text-center">{user.displayName}</span>
+              <button onClick={handleLogOut} className="btn btn-xs btn-outline">Logout</button>
+              </div>
+            </div>
             </>
           }
         </div>

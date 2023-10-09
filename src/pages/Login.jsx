@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -15,8 +16,6 @@ const Login = () => {
   // password show and hide
   const [showPassword , setShowPassword] = useState(false);
 
-  // showing error message on ui
-  const [registerError, setRegisterError] = useState("");
 
     const handleLogin = e => {
         e.preventDefault();
@@ -26,10 +25,7 @@ const Login = () => {
         const password = e.target.password.value;
 
 
-        if(!registerError){
-          toast.error("Email and Password Dosen't Match")
-        }
-
+        
         console.log(email , password)
 
         // log in user from firebase 
@@ -41,7 +37,7 @@ const Login = () => {
                 navigate("/");
             })
             .catch(error => {
-              setRegisterError(error.message);
+              toast.error("Email and Password Dosen't Match")
             })
     };
 
@@ -52,7 +48,7 @@ const Login = () => {
             console.log(result.user);
           })
           .catch(error => {
-            setRegisterError(error.message);
+            toast.error("Email and Password Dosen't Match")
           })
     }
 

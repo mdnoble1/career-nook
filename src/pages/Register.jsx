@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
@@ -61,6 +62,13 @@ const Register = () => {
     createUser(email , password)
         .then(result => {
             console.log(result.user);
+
+
+            updateProfile(result.user ,{
+              displayName: name ,
+              photoURL: photo
+            })
+
             e.target.reset();
             navigate("/");
         })
