@@ -1,20 +1,34 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import toast from "react-hot-toast";
 
 const Login = () => {
 
 
   const { signInUser , signInWithGoogle } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+
+  // password show and hide
+  const [showPassword , setShowPassword] = useState(false);
+
+  // showing error message on ui
+  const [registerError, setRegisterError] = useState("");
 
     const handleLogin = e => {
         e.preventDefault();
 
+        
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+
+        if(!registerError){
+          toast.error("Email and Password Dosen't Match")
+        }
 
         console.log(email , password)
 
@@ -27,7 +41,7 @@ const Login = () => {
                 navigate("/");
             })
             .catch(error => {
-                console.error(error);
+              setRegisterError(error.message);
             })
     };
 
@@ -38,7 +52,7 @@ const Login = () => {
             console.log(result.user);
           })
           .catch(error => {
-            console.error(error);
+            setRegisterError(error.message);
           })
     }
 
@@ -71,13 +85,20 @@ const Login = () => {
                 Password
               </span>
             </label>
+            <div className="relative">
             <input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter Your Password"
-              className="input input-bordered rounded-lg bg-gray-100"
+              className="input input-bordered rounded-lg bg-gray-100 w-full"
               required
             />
+            <span className="absolute top-4 right-2" onClick={() => setShowPassword(!showPassword)}>
+            {
+                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+            }
+          </span>
+            </div>
           </div>
           <div className="form-control mt-6">
             <button className="btn rounded-lg font-semibold text-xl normal-case text-white bg-[#fc621c] hover:bg-orange-400 hover:text-black">

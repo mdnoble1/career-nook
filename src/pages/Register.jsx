@@ -1,13 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
 
   const {createUser} = useContext(AuthContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  // password show and hide
+  const [showPassword , setShowPassword] = useState(false);
+
+  
 
    
 
@@ -16,10 +23,37 @@ const Register = () => {
     e.preventDefault();
 
     const name = e.target.name.value;
+    const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(name, email, password);
+
+  
+
+    
+
+
+    if (password.length < 6) {
+      toast.error('Password Must be Longer Than 6 Characters');
+      return;
+    }
+
+    else if (!/[A-Z]/.test(password)){
+      toast.error('Password Must Contain an Uppercase');
+      return;
+    }
+
+
+    
+    else if (!/.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-].*/.test(password)){
+      toast.error('Password Must Contain a Special Character');
+      return;
+    }
+
+
+    
+    
+    console.log(name, photo , email, password);
 
 
     // create user in firebase 
@@ -31,9 +65,10 @@ const Register = () => {
             navigate("/");
         })
         .catch(error => {
-            console.error(error);
+          console.error(error.message)
         })
 
+        
 
 
   };
@@ -58,7 +93,7 @@ const Register = () => {
               type="text"
               placeholder="Enter Your Name"
               className="input input-bordered rounded-lg bg-gray-100"
-              
+              required
             />
           </div>
           <div className="form-control">
@@ -72,7 +107,7 @@ const Register = () => {
               type="text"
               placeholder="Give Your Photo URL"
               className="input input-bordered rounded-lg bg-gray-100"
-              
+              required
             />
           </div>
           <div className="form-control">
@@ -95,13 +130,20 @@ const Register = () => {
                 Password
               </span>
             </label>
+            <div className="relative">
             <input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter Your Password"
-              className="input input-bordered rounded-lg bg-gray-100"
+              className="input input-bordered rounded-lg bg-gray-100 w-full"
               required
             />
+            <span className="absolute top-4 right-2" onClick={() => setShowPassword(!showPassword)}>
+            {
+                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+            }
+          </span>
+            </div>
           </div>
           <div className="flex items-center gap-4 mt-2">
             <input type="checkbox" name="terms" id="" />
@@ -117,6 +159,7 @@ const Register = () => {
           <p className="font-semibold text-black text-center">
             Already a Member ? Please <NavLink to="/login" className="text-[#fc621c]">Login</NavLink>
           </p>
+          
         </div>
       </div>
     </div>
