@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
 
@@ -71,6 +72,10 @@ const Login = () => {
             <button className="btn rounded-lg font-semibold text-xl normal-case text-white bg-[#fc621c] hover:bg-orange-400 hover:text-black">
               Login
             </button>
+          </div>
+          <p className="font-medium text-xl text-center">or</p>
+          <div>
+          <button className="btn btn-outline w-full rounded-lg font-semibold text-xl normal-case hover:text-[#fc621c]"><FaGoogle></FaGoogle>Sign In With Google</button>
           </div>
         </form>
         <div>

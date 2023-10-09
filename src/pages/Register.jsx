@@ -1,6 +1,44 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
+
+
+  const {createUser} = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+   
+
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log(name, email, password);
+
+
+    // create user in firebase 
+
+    createUser(email , password)
+        .then(result => {
+            console.log(result.user);
+            e.target.reset();
+            navigate("/");
+        })
+        .catch(error => {
+            console.error(error);
+        })
+
+
+
+  };
+
+
   return (
     <div className="bg-gray-100 max-h-fit lg:pb-16 lg:pt-12">
       <div className="lg:w-1/2 mx-auto py-12 lg:py-32 bg-white rounded-md lg:mt-12">
@@ -8,7 +46,7 @@ const Register = () => {
           Register Your Account
         </h2>
         <div className="border border-gray-200 lg:w-1/2 mx-auto mb-6"></div>
-        <form className="card-body lg:w-1/2 mx-auto">
+        <form onSubmit={handleRegister} className="card-body lg:w-1/2 mx-auto">
           <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold text-lg text-black">
@@ -20,7 +58,7 @@ const Register = () => {
               type="text"
               placeholder="Enter Your Name"
               className="input input-bordered rounded-lg bg-gray-100"
-              required
+              
             />
           </div>
           <div className="form-control">
@@ -34,7 +72,7 @@ const Register = () => {
               type="text"
               placeholder="Give Your Photo URL"
               className="input input-bordered rounded-lg bg-gray-100"
-              required
+              
             />
           </div>
           <div className="form-control">
