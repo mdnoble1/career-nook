@@ -1,8 +1,25 @@
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import logo from "../../assets/Ca1 (1).png";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+
+
+  const { user , logOut } = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut()
+      .then(() => {
+        console.log("user logged out");
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  } 
+
+
   const navLinks = (
     <>
       <li>
@@ -50,6 +67,14 @@ const Navbar = () => {
             className="dropdown-content mt-3 z-[1] p-4 shadow bg-slate-50 rounded-box w-52 font-semibold text-lg text-[#fc621c]"
           >
             {navLinks}
+              <div>
+                {
+                  user && <>
+                  <span>{user.email}</span>
+                  <button onClick={handleLogOut} className="btn btn-sm btn-outline">Logout</button>
+                  </>
+                }
+              </div>
           </ul>
         </div>
         <div>
@@ -59,6 +84,14 @@ const Navbar = () => {
           <ul className="flex gap-12 font-semibold text-xl text-white">
             {navLinks}
           </ul>
+        </div>
+        <div className="hidden lg:block">
+          {
+            user && <>
+            <span>{user.email}</span>
+            <button onClick={handleLogOut} className="btn btn-sm btn-outline">Logout</button>
+            </>
+          }
         </div>
       </div>
     </nav>
